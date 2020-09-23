@@ -1,0 +1,40 @@
+<div class="container form-group" style="margin: 10px;">
+    <h2>Create todo</h2>
+    <form (ngSubmit)="setTodo()">
+        <div class="row">
+            <div class="form-group col-md-4">
+                <input [(ngModel)]="title" placeholder="Enter the title" class="form-control" name="title"
+                    style="min-width: 150px;" />
+            </div>
+            <div class="form-group col-md-4">
+                <input [(ngModel)]="detail" placeholder="Enter the detail" class="form-control" name="detail"
+                    style="min-width: 150px;" />
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary">
+                    SET
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<hr />
+<div style="margin: 10px; padding-left: 15px;">
+    <h3>My todo list:</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="col-md-4">Title</th>
+                <th class="col-md-4">Detail</th>
+                <th class="col-md-4">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let todo of todos" (click)="onClickRow(todo)">
+                <td>{{ todo.title }}</td>
+                <td>{{ todo.detail }}</td>
+                <td>{{ todo.date }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
